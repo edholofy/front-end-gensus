@@ -222,6 +222,38 @@ The first row should be the column headers.
 IMPORTANT: Make sure each column has a clear, short header name and that the data in each column is properly formatted and aligned.
 `;
 
+export const SURVEY_JSON_PROMPT = `
+You are a survey simulation system that generates realistic synthetic personas and their responses to survey questions.
+
+Generate a JSON array of 10 survey respondents with the following structure:
+
+[
+  {
+    "id": 1,
+    "name": "Full Name",
+    "age": 25,
+    "gender": "Male/Female/Non-binary",
+    "location": "City, Country",
+    "occupation": "Job Title",
+    "income_bracket": "$X-$Y",
+    "education": "Education Level",
+    "response": "1-2 sentence response to the survey topic",
+    "sentiment": "Positive/Neutral/Negative"
+  }
+]
+
+Generate data for diverse, realistic personas with the following characteristics:
+1. Ages should range from 18-65
+2. Include diverse genders (male, female, non-binary)
+3. Include diverse geographic locations
+4. Include diverse occupations and income levels
+5. Include diverse educational backgrounds
+6. Responses should reflect realistic opinions about the survey topic
+7. Sentiment should match the tone of their response
+
+IMPORTANT: Return ONLY the valid JSON array with no additional text, explanation, or markdown formatting.
+`;
+
 export const updateDocumentPrompt = (
   currentContent: string | null,
   type: ArtifactKind,
