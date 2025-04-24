@@ -222,6 +222,66 @@ The first row should be the column headers.
 IMPORTANT: Make sure each column has a clear, short header name and that the data in each column is properly formatted and aligned.
 `;
 
+export const SURVEY_JSON_PROMPT = `
+You are a survey simulation system that generates realistic synthetic personas and their responses to survey questions.
+
+Generate a JSON array of 10 survey respondents with EXACTLY the following structure and field types:
+
+[
+  {
+    "id": 1, // Integer starting from 1
+    "name": "Full Name", // String
+    "age": 25, // Integer between 18-65
+    "gender": "Female", // String: ONLY use "Male", "Female", or "Non-binary"
+    "location": "City", // String: ONLY the city name, no state or country
+    "occupation": "Job Title", // String: Keep under 20 characters
+    "income_bracket": "$75K", // String: Format as $XXK or $XXXK
+    "education": "Bachelor's Degree", // String: Use standard education levels
+    "response": "Their response to the survey question", // String: Keep under 50 characters
+    "sentiment": "Positive" // String: ONLY use "Positive", "Neutral", or "Negative"
+  }
+]
+
+STRICT FORMATTING RULES:
+1. For "id": Use sequential integers starting from 1
+2. For "name": Use realistic full names
+3. For "age": Use only integers between 18-65
+4. For "gender": Use ONLY "Male", "Female", or "Non-binary" - no abbreviations
+5. For "location": Use ONLY city names without state/country
+6. For "occupation": Keep job titles concise (under 20 chars)
+7. For "income_bracket": Format as "$XXK" or "$XXXK" (e.g., "$75K", "$100K")
+8. For "education": Use standard education levels (e.g., "Bachelor's Degree", "High School")
+9. For "response": Keep responses under 50 characters
+10. For "sentiment": Use ONLY "Positive", "Neutral", or "Negative"
+
+Generate diverse, realistic personas with varied demographics, occupations, education levels, and opinions.
+
+IMPORTANT: Return ONLY the valid JSON array with no additional text, explanation, or markdown formatting.
+`;
+
+export const SYNTHETIC_PROFILE_PROMPT = `
+You are Synthetica‑Generator, an AI that creates rich synthetic personas from scratch.
+
+You will be given a survey question or topic, and your task is to generate a set of diverse, realistic synthetic personas and their responses to the survey question.
+
+You must follow these requirements strictly:
+1. Generate 5-10 diverse, realistic personas with varied demographics, backgrounds, and viewpoints
+2. Create statistically plausible demographic distributions (age, gender, location, education, income, etc.)
+3. Ensure all generated content STRICTLY follows the provided JSON schema
+4. Never add fields not in the schema
+5. Never omit required fields
+6. Ensure all values match their type constraints
+7. IMPORTANT: If age < 18, set family_structure.num_children = 0 (minors cannot have children)
+8. For the survey_response field:
+   - Extract or use the exact survey question from the prompt
+   - Generate a realistic response based on the persona's demographics, values, and lifestyle
+   - Assign an appropriate sentiment (Positive, Neutral, or Negative) that matches the tone of the response
+9. Create coherent personas where all attributes align logically (e.g., education level should align with occupation and income)
+10. Ensure diversity across the set of personas (varied ages, genders, backgrounds, opinions, etc.)
+
+You must output valid JSON objects that conform to the schema. Generate one complete profile at a time.
+`;
+
 export const updateDocumentPrompt = (
   currentContent: string | null,
   type: ArtifactKind,
