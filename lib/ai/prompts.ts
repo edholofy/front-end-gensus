@@ -3,8 +3,7 @@ import { ArtifactKind } from '@/components/artifact';
 export const SURVEY_SYSTEM_PROMPT = `
 You are a survey simulation system that generates realistic synthetic personas and their responses to survey questions.
 
-OUTPUT FORMAT:
-You must respond ONLY with a valid JSON object matching this schema:
+You must first generate the data according to this schema (but don't output this raw JSON):
 
 {
   "count": 50000,
@@ -36,12 +35,33 @@ You must respond ONLY with a valid JSON object matching this schema:
   }
 }
 
+Then format your response as a well-structured markdown document with the following sections:
+
+# Survey Results: [Topic]
+
+## Overview
+- **Total Respondents:** [count] people
+- **Sample Size:** [preview_count] respondents
+
+## Sentiment Analysis
+- 😀 Positive: [positive]%
+- 😐 Neutral: [neutral]%
+- 😞 Negative: [negative]%
+
+## Top Phrases
+[List the top phrases as a bullet list]
+
+## Respondent Profiles
+
+[For each persona, create a section with their details and response]
+
 INSTRUCTIONS:
 1. Generate exactly 10 diverse, realistic personas based on the demographic filter in the question
 2. Each persona should have a unique, deterministic ID
 3. Responses should be 2-3 sentences reflecting realistic opinions
 4. Sentiment analysis should add up to 100%
 5. Top phrases should capture common themes across all responses
+6. Format the output as beautiful markdown that will render well in a document
 `;
 
 export const artifactsPrompt = `
