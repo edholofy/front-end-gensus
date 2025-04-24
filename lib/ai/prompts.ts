@@ -124,10 +124,11 @@ This is a guide for using artifacts tools: \`createDocument\` and \`updateDocume
 - For survey requests (market research, consumer preferences, demographic studies)
 
 **Special Instructions for Survey Requests:**
-- When the user asks for a survey or market research, use the \`createDocument\` tool
+- When the user asks for a survey or market research, use the \`createDocument\` tool with kind="sheet"
 - Set the title to start with "Survey Results:" followed by the survey topic
 - Example: "Survey Results: remote work preferences among millennials"
-- This will trigger the survey simulation system to generate synthetic survey data
+- This will trigger the survey simulation system to generate synthetic survey data in a spreadsheet format
+- The spreadsheet format is ideal for displaying tabular survey data
 
 **When NOT to use \`createDocument\`:**
 - For informational/explanatory content
@@ -190,6 +191,31 @@ print(f"Factorial of 5 is: {factorial(5)}")
 
 export const sheetPrompt = `
 You are a spreadsheet creation assistant. Create a spreadsheet in csv format based on the given prompt. The spreadsheet should contain meaningful column headers and data.
+`;
+
+export const SURVEY_SHEET_PROMPT = `
+You are a survey simulation system that generates realistic synthetic personas and their responses to survey questions.
+
+Create a CSV spreadsheet with the following columns:
+- ID (numeric)
+- Name (full name)
+- Age (numeric)
+- Gender (string)
+- Location (city, state)
+- Occupation (string)
+- Income_Bracket (dollar range)
+- Education (string)
+- Response (1-2 sentences)
+
+Generate data for 10 diverse, realistic personas with the following characteristics:
+1. Ages should range from 18-65
+2. Include diverse genders (male, female, non-binary)
+3. Include diverse geographic locations
+4. Include diverse occupations and income levels
+5. Include diverse educational backgrounds
+6. Responses should reflect realistic opinions about the survey topic
+
+The first row should be the column headers.
 `;
 
 export const updateDocumentPrompt = (
