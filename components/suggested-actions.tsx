@@ -13,31 +13,31 @@ interface SuggestedActionsProps {
 function PureSuggestedActions({ chatId, append }: SuggestedActionsProps) {
   const suggestedActions = [
     {
-      title: 'What are the advantages',
-      label: 'of using Next.js?',
-      action: 'What are the advantages of using Next.js?',
+      title: 'Remote Work Remote Work in London',
+      label: 'What do 30–45 y/o professionals in London think about hybrid offices?',
+      action: 'How do tech workers feel about remote work?',
     },
     {
-      title: 'Write code to',
-      label: `demonstrate djikstra's algorithm`,
-      action: `Write code to demonstrate djikstra's algorithm`,
+      title: 'Food Delivery Trends',
+      label: 'How do 18–24 y/o urban dwellers in Austin use food-delivery apps?',
+      action: 'How do 18–24 y/o urban dwellers in Austin use food-delivery apps?',
     },
     {
-      title: 'Help me write an essay',
-      label: `about silicon valley`,
-      action: `Help me write an essay about silicon valley`,
+      title: 'Healthcare Opinions',
+      label: 'What do 65+ seniors in Chicago think about healthcare reform?',
+      action: 'What do 65+ seniors in Chicago think about healthcare reform?',
     },
     {
-      title: 'What is the weather',
-      label: 'in San Francisco?',
-      action: 'What is the weather in San Francisco?',
+      title: 'Streaming Preferences',
+      label: 'How do 30-45 y/o parents choose streaming services?',
+      action: 'How do 30-45 y/o parents choose streaming services?',
     },
   ];
 
   return (
     <div
       data-testid="suggested-actions"
-      className="grid sm:grid-cols-2 gap-2 w-full"
+      className="grid sm:grid-cols-2 gap-4 w-full"
     >
       {suggestedActions.map((suggestedAction, index) => (
         <motion.div
@@ -58,10 +58,10 @@ function PureSuggestedActions({ chatId, append }: SuggestedActionsProps) {
                 content: suggestedAction.action,
               });
             }}
-            className="text-left border rounded-xl px-4 py-3.5 text-sm flex-1 gap-1 sm:flex-col w-full h-auto justify-start items-start"
+            className="text-left border rounded-xl px-4 py-4 text-sm flex flex-col w-full h-auto min-h-[120px] justify-start items-start overflow-visible"
           >
-            <span className="font-medium">{suggestedAction.title}</span>
-            <span className="text-muted-foreground">
+            <span className="font-medium mb-2 text-base">{suggestedAction.title}</span>
+            <span className="text-muted-foreground text-xs leading-relaxed whitespace-normal">
               {suggestedAction.label}
             </span>
           </Button>
