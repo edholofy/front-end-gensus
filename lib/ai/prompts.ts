@@ -202,33 +202,24 @@ Create a CSV spreadsheet with the following columns:
 - Age (numeric)
 - Gender (string)
 - Location (city, state)
-- Region (Northeast, South, Midwest, West, etc.)
 - Occupation (string)
-- Industry (Technology, Healthcare, Education, etc.)
-- Years_Experience (numeric)
 - Income_Bracket (dollar range)
 - Education (string)
-- Marital_Status (Single, Married, Divorced, etc.)
-- Has_Children (Yes/No)
-- Living_Arrangement (Urban, Suburban, Rural)
-- Transportation (Car, Public Transit, Bike, etc.)
-- Technology_Adoption (Early Adopter, Mainstream, Late Adopter)
-- Primary_Device (Smartphone, Laptop, Tablet, etc.)
-- Social_Media_Usage (High, Medium, Low)
-- Preferred_Communication (Email, Text, Phone, etc.)
 - Response (1-2 sentences)
 - Sentiment (Positive, Neutral, Negative)
 
 Generate data for 10 diverse, realistic personas with the following characteristics:
 1. Ages should range from 18-65
-2. Include diverse genders, locations, and demographics
-3. Include diverse occupations, industries, and income levels
-4. Include diverse educational backgrounds and living situations
-5. Include diverse technology usage patterns and preferences
+2. Include diverse genders (male, female, non-binary)
+3. Include diverse geographic locations
+4. Include diverse occupations and income levels
+5. Include diverse educational backgrounds
 6. Responses should reflect realistic opinions about the survey topic
 7. Sentiment should match the tone of their response
 
 The first row should be the column headers.
+
+IMPORTANT: Make sure each column has a clear, short header name and that the data in each column is properly formatted and aligned.
 `;
 
 export const updateDocumentPrompt = (
