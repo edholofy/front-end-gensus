@@ -51,7 +51,13 @@ Then format your response as a well-structured markdown document with the follow
 ## Top Phrases
 [List the top phrases as a bullet list]
 
-## Respondent Profiles
+## Respondent Summary Table
+
+| ID | Age | Gender | Location | Occupation | Income Bracket | Education |
+|----|-----|--------|----------|------------|----------------|----------|
+| [Fill with data for each persona] |
+
+## Detailed Respondent Profiles
 
 [For each persona, create a section with their details and response]
 
