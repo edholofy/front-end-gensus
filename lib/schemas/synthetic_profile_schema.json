@@ -1,0 +1,311 @@
+{
+  "type": "object",
+  "title": "Synthetic Profile",
+  "description": "A synthetic person profile with enriched attributes",
+  "additionalProperties": false,
+  "required": [
+    "personality",
+    "interests",
+    "lifestyle",
+    "family_structure",
+    "housing",
+    "employment",
+    "consumer_behavior",
+    "media_consumption",
+    "tech_usage",
+    "values",
+    "health",
+    "survey_response"
+  ],
+  "properties": {
+    "personality": {
+      "type": "object",
+      "description": "Personality traits and characteristics",
+      "additionalProperties": false,
+      "required": [
+        "traits",
+        "communication_style",
+        "decision_making"
+      ],
+      "properties": {
+        "traits": {
+          "type": "array",
+          "description": "Key personality traits (3-5)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "communication_style": {
+          "type": "string",
+          "description": "How they typically communicate"
+        },
+        "decision_making": {
+          "type": "string",
+          "description": "How they approach decisions"
+        }
+      }
+    },
+    "interests": {
+      "type": "object",
+      "description": "Hobbies, activities and interests",
+      "additionalProperties": false,
+      "required": [
+        "hobbies",
+        "favorite_activities"
+      ],
+      "properties": {
+        "hobbies": {
+          "type": "array",
+          "description": "Primary hobbies and pastimes",
+          "items": {
+            "type": "string"
+          }
+        },
+        "favorite_activities": {
+          "type": "array",
+          "description": "Favorite leisure activities",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "lifestyle": {
+      "type": "object",
+      "description": "Daily routines and lifestyle choices",
+      "additionalProperties": false,
+      "required": [
+        "daily_routine",
+        "exercise_frequency",
+        "diet_preference"
+      ],
+      "properties": {
+        "daily_routine": {
+          "type": "string",
+          "description": "Brief description of typical daily schedule"
+        },
+        "exercise_frequency": {
+          "type": "string",
+          "description": "How often they exercise"
+        },
+        "diet_preference": {
+          "type": "string",
+          "description": "Dietary preferences or restrictions"
+        }
+      }
+    },
+    "family_structure": {
+      "type": "object",
+      "description": "Family composition and relationships",
+      "additionalProperties": false,
+      "required": [
+        "marital_status",
+        "num_children",
+        "living_arrangement"
+      ],
+      "properties": {
+        "marital_status": {
+          "type": "string",
+          "description": "Current marital status"
+        },
+        "num_children": {
+          "type": "integer",
+          "description": "Number of children"
+        },
+        "living_arrangement": {
+          "type": "string",
+          "description": "Current living arrangement"
+        }
+      }
+    },
+    "housing": {
+      "type": "object",
+      "description": "Housing situation and preferences",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "ownership",
+        "neighborhood_preference"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Type of housing"
+        },
+        "ownership": {
+          "type": "string",
+          "description": "Ownership status"
+        },
+        "neighborhood_preference": {
+          "type": "string",
+          "description": "Preferred neighborhood characteristics"
+        }
+      }
+    },
+    "employment": {
+      "type": "object",
+      "description": "Employment details and career",
+      "additionalProperties": false,
+      "required": [
+        "occupation",
+        "work_arrangement",
+        "career_goals"
+      ],
+      "properties": {
+        "occupation": {
+          "type": "string",
+          "description": "Current job title or occupation"
+        },
+        "work_arrangement": {
+          "type": "string",
+          "description": "Work arrangement (remote, hybrid, in-office)"
+        },
+        "career_goals": {
+          "type": "string",
+          "description": "Career aspirations or goals"
+        }
+      }
+    },
+    "consumer_behavior": {
+      "type": "object",
+      "description": "Shopping habits and preferences",
+      "additionalProperties": false,
+      "required": [
+        "shopping_frequency",
+        "price_sensitivity",
+        "brand_loyalty"
+      ],
+      "properties": {
+        "shopping_frequency": {
+          "type": "string",
+          "description": "How often they shop"
+        },
+        "price_sensitivity": {
+          "type": "string",
+          "description": "Sensitivity to prices when shopping"
+        },
+        "brand_loyalty": {
+          "type": "string",
+          "description": "Level of brand loyalty"
+        }
+      }
+    },
+    "media_consumption": {
+      "type": "object",
+      "description": "Media habits and preferences",
+      "additionalProperties": false,
+      "required": [
+        "preferred_platforms",
+        "content_interests"
+      ],
+      "properties": {
+        "preferred_platforms": {
+          "type": "array",
+          "description": "Preferred media platforms",
+          "items": {
+            "type": "string"
+          }
+        },
+        "content_interests": {
+          "type": "array",
+          "description": "Types of content they enjoy",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "tech_usage": {
+      "type": "object",
+      "description": "Technology adoption and usage",
+      "additionalProperties": false,
+      "required": [
+        "devices_owned",
+        "tech_adoption",
+        "social_media_usage"
+      ],
+      "properties": {
+        "devices_owned": {
+          "type": "array",
+          "description": "Electronic devices owned",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tech_adoption": {
+          "type": "string",
+          "description": "Approach to new technology"
+        },
+        "social_media_usage": {
+          "type": "string",
+          "description": "Social media usage patterns"
+        }
+      }
+    },
+    "values": {
+      "type": "object",
+      "description": "Core values and beliefs",
+      "additionalProperties": false,
+      "required": [
+        "core_values",
+        "political_leaning"
+      ],
+      "properties": {
+        "core_values": {
+          "type": "array",
+          "description": "Core personal values",
+          "items": {
+            "type": "string"
+          }
+        },
+        "political_leaning": {
+          "type": "string",
+          "description": "General political orientation"
+        }
+      }
+    },
+    "health": {
+      "type": "object",
+      "description": "Health status and concerns",
+      "additionalProperties": false,
+      "required": [
+        "overall_status",
+        "health_consciousness"
+      ],
+      "properties": {
+        "overall_status": {
+          "type": "string",
+          "description": "General health status"
+        },
+        "health_consciousness": {
+          "type": "string",
+          "description": "Level of health awareness"
+        }
+      }
+    },
+    "survey_response": {
+      "type": "object",
+      "description": "Response to the survey question",
+      "additionalProperties": false,
+      "required": [
+        "question",
+        "answer",
+        "sentiment"
+      ],
+      "properties": {
+        "question": {
+          "type": "string",
+          "description": "The survey question being asked"
+        },
+        "answer": {
+          "type": "string",
+          "description": "The person's response to the survey question"
+        },
+        "sentiment": {
+          "type": "string",
+          "description": "The sentiment of the response (Positive, Neutral, or Negative)"
+        }
+      }
+    }
+  }
+}
