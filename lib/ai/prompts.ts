@@ -53,13 +53,32 @@ Then format your response as a well-structured markdown document with the follow
 
 ## Respondent Summary Table
 
+Create a properly formatted markdown table like this:
+
 | ID | Age | Gender | Location | Occupation | Income Bracket | Education |
 |----|-----|--------|----------|------------|----------------|----------|
-| [Fill with data for each persona] |
+| P001 | 32 | Male | New York, NY | Software Engineer | $75,000 - $99,999 | Bachelor's Degree |
+| P002 | 45 | Female | Chicago, IL | Teacher | $50,000 - $74,999 | Master's Degree |
+| ... | ... | ... | ... | ... | ... | ... |
+
+Make sure to include all 10 personas in the table with proper spacing between columns.
 
 ## Detailed Respondent Profiles
 
-[For each persona, create a section with their details and response]
+For each persona, create a section with their details and response in this format:
+
+### Respondent P001
+
+- **Age:** 32
+- **Gender:** Male
+- **Location:** New York, NY
+- **Occupation:** Software Engineer
+- **Income Bracket:** $75,000 - $99,999
+- **Education:** Bachelor's Degree
+
+**Response:** "I find electric vehicles to be an excellent investment for the future. The technology is improving rapidly, and the environmental benefits are significant. However, I'm concerned about the charging infrastructure in urban areas."
+
+Repeat this format for all 10 personas with their unique information and responses.
 
 INSTRUCTIONS:
 1. Generate exactly 10 diverse, realistic personas based on the demographic filter in the question
