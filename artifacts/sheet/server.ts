@@ -10,19 +10,33 @@ function convertSurveyJsonToCsv(surveyData: any[]): string {
     return '';
   }
   
-  // Get headers from the first object's keys
-  const headers = Object.keys(surveyData[0]);
+  // Define the exact headers we want in the specific order for the sheet
+  const orderedHeaders = [
+    'id', 'name', 'age', 'gender', 'location', 'occupation', 
+    'income_bracket', 'education', 'response', 'sentiment'
+  ];
   
-  // Create CSV header row
-  let csv = headers.join(',') + '\n';
+  // Create CSV header row with capitalized headers
+  const headerRow = orderedHeaders.map(header => {
+    // Capitalize and replace underscores with spaces
+    return header.split('_')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }).join(',');
   
-  // Add data rows
+  let csv = headerRow + '\n';
+  
+  // Add data rows in the correct order
   surveyData.forEach(row => {
-    const values = headers.map(header => {
+    const values = orderedHeaders.map(header => {
       const value = row[header];
       // Handle strings with commas by wrapping in quotes
       if (typeof value === 'string' && value.includes(',')) {
         return `"${value.replace(/"/g, '""')}"`;
+      }
+      // Handle undefined or null values
+      if (value === undefined || value === null) {
+        return '';
       }
       return value;
     });

@@ -225,31 +225,36 @@ IMPORTANT: Make sure each column has a clear, short header name and that the dat
 export const SURVEY_JSON_PROMPT = `
 You are a survey simulation system that generates realistic synthetic personas and their responses to survey questions.
 
-Generate a JSON array of 10 survey respondents with the following structure:
+Generate a JSON array of 10 survey respondents with EXACTLY the following structure and field types:
 
 [
   {
-    "id": 1,
-    "name": "Full Name",
-    "age": 25,
-    "gender": "Male/Female/Non-binary",
-    "location": "City, Country",
-    "occupation": "Job Title",
-    "income_bracket": "$X-$Y",
-    "education": "Education Level",
-    "response": "1-2 sentence response to the survey topic",
-    "sentiment": "Positive/Neutral/Negative"
+    "id": 1, // Integer starting from 1
+    "name": "Full Name", // String
+    "age": 25, // Integer between 18-65
+    "gender": "Female", // String: ONLY use "Male", "Female", or "Non-binary"
+    "location": "City", // String: ONLY the city name, no state or country
+    "occupation": "Job Title", // String: Keep under 20 characters
+    "income_bracket": "$75K", // String: Format as $XXK or $XXXK
+    "education": "Bachelor's Degree", // String: Use standard education levels
+    "response": "Their response to the survey question", // String: Keep under 50 characters
+    "sentiment": "Positive" // String: ONLY use "Positive", "Neutral", or "Negative"
   }
 ]
 
-Generate data for diverse, realistic personas with the following characteristics:
-1. Ages should range from 18-65
-2. Include diverse genders (male, female, non-binary)
-3. Include diverse geographic locations
-4. Include diverse occupations and income levels
-5. Include diverse educational backgrounds
-6. Responses should reflect realistic opinions about the survey topic
-7. Sentiment should match the tone of their response
+STRICT FORMATTING RULES:
+1. For "id": Use sequential integers starting from 1
+2. For "name": Use realistic full names
+3. For "age": Use only integers between 18-65
+4. For "gender": Use ONLY "Male", "Female", or "Non-binary" - no abbreviations
+5. For "location": Use ONLY city names without state/country
+6. For "occupation": Keep job titles concise (under 20 chars)
+7. For "income_bracket": Format as "$XXK" or "$XXXK" (e.g., "$75K", "$100K")
+8. For "education": Use standard education levels (e.g., "Bachelor's Degree", "High School")
+9. For "response": Keep responses under 50 characters
+10. For "sentiment": Use ONLY "Positive", "Neutral", or "Negative"
+
+Generate diverse, realistic personas with varied demographics, occupations, education levels, and opinions.
 
 IMPORTANT: Return ONLY the valid JSON array with no additional text, explanation, or markdown formatting.
 `;
