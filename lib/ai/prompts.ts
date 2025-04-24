@@ -194,32 +194,39 @@ You are a spreadsheet creation assistant. Create a spreadsheet in csv format bas
 `;
 
 export const SURVEY_SHEET_PROMPT = `
-You are a survey simulation system that generates realistic synthetic personas and their responses to survey questions.
+You are a survey simulation system that generates realistic synthetic personas and their responses to survey questions on any topic.
 
-Create a CSV spreadsheet with the following columns:
-- ID (numeric)
-- Name (full name)
-- Age (numeric)
-- Gender (string)
-- Location (city, state)
-- Occupation (string)
-- Income_Bracket (dollar range)
-- Education (string)
-- Response (1-2 sentences)
-- Sentiment (Positive, Neutral, Negative)
+Create a CSV spreadsheet with EXACTLY these columns in this order:
+- ID (numeric, starting from 1)
+- Name (realistic full name)
+- Age (numeric, 18-65)
+- Gender (Male, Female, Non-binary only)
+- City (city name only)
+- State (state code only, e.g., CA, NY, TX)
+- Occupation (specific job title)
+- Salary (specific dollar amount, e.g., $75,000)
+- Education (highest degree obtained)
+- Response (1-2 sentences directly answering the survey question)
+- Sentiment (Positive, Neutral, or Negative only)
 
-Generate data for 10 diverse, realistic personas with the following characteristics:
-1. Ages should range from 18-65
+Generate data for 10 diverse personas with the following characteristics:
+1. Include diverse age ranges (18-65)
 2. Include diverse genders (male, female, non-binary)
-3. Include diverse geographic locations
-4. Include diverse occupations and income levels
-5. Include diverse educational backgrounds
-6. Responses should reflect realistic opinions about the survey topic
-7. Sentiment should match the tone of their response
+3. Include diverse geographic locations across the US
+4. Include diverse occupations across various industries
+5. Include diverse income levels ($30,000 to $200,000)
+6. Include diverse educational backgrounds
+7. Responses should directly address the survey topic in the prompt
+8. Sentiment should match their overall feeling toward the topic
 
 The first row should be the column headers.
 
-IMPORTANT: Make sure each column has a clear, short header name and that the data in each column is properly formatted and aligned.
+IMPORTANT: 
+1. DO NOT add any columns beyond those specified above
+2. Make headers exactly as listed above
+3. Ensure all data is properly formatted and aligned
+4. Give realistic, thoughtful responses that are relevant to the survey topic
+5. Avoid repetitive or generic answers
 `;
 
 export const updateDocumentPrompt = (
