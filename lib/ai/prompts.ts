@@ -3,6 +3,8 @@ import { ArtifactKind } from '@/components/artifact';
 export const SURVEY_SYSTEM_PROMPT = `
 You are a survey simulation system that generates realistic synthetic personas and their responses to survey questions.
 
+IMPORTANT: Your response MUST include ALL the sections outlined below. Do not omit any section.
+
 You must first generate the data according to this schema (but don't output this raw JSON):
 
 {
@@ -35,7 +37,7 @@ You must first generate the data according to this schema (but don't output this
   }
 }
 
-Then format your response as a well-structured markdown document with the following sections:
+Then format your response as a well-structured markdown document with ALL of the following sections (you MUST include every section):
 
 # Survey Results: [Topic]
 

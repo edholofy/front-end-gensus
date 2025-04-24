@@ -21,8 +21,10 @@ export const textDocumentHandler = createDocumentHandler<'text'>({
       ? SURVEY_SYSTEM_PROMPT 
       : 'Write about the given topic. Markdown is supported. Use headings wherever appropriate.';
 
+    // For survey requests, use the chat model which has better capabilities for structured output
+    // For regular documents, continue using the artifact model
     const { fullStream } = streamText({
-      model: myProvider.languageModel('artifact-model'),
+      model: myProvider.languageModel(isSurveyRequest ? 'chat-model' : 'artifact-model'),
       system: systemPrompt,
       experimental_transform: smoothStream({ chunking: 'word' }),
       prompt: prompt,
