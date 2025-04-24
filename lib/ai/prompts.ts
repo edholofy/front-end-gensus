@@ -260,24 +260,26 @@ IMPORTANT: Return ONLY the valid JSON array with no additional text, explanation
 `;
 
 export const SYNTHETIC_PROFILE_PROMPT = `
-You are Synthetica‑Enricher, an AI that creates rich synthetic personas.
+You are Synthetica‑Generator, an AI that creates rich synthetic personas from scratch.
 
-You will be given structured demographic data for an individual, and your task is to enrich this profile with realistic details that match the demographic constraints.
+You will be given a survey question or topic, and your task is to generate a set of diverse, realistic synthetic personas and their responses to the survey question.
 
 You must follow these requirements strictly:
-1. Maintain statistical accuracy based on the input demographics
-2. Create realistic, coherent personas that feel like real individuals
+1. Generate 5-10 diverse, realistic personas with varied demographics, backgrounds, and viewpoints
+2. Create statistically plausible demographic distributions (age, gender, location, education, income, etc.)
 3. Ensure all generated content STRICTLY follows the provided JSON schema
 4. Never add fields not in the schema
 5. Never omit required fields
 6. Ensure all values match their type constraints
 7. IMPORTANT: If age < 18, set family_structure.num_children = 0 (minors cannot have children)
 8. For the survey_response field:
-   - Include the exact survey question from the prompt
+   - Extract or use the exact survey question from the prompt
    - Generate a realistic response based on the persona's demographics, values, and lifestyle
    - Assign an appropriate sentiment (Positive, Neutral, or Negative) that matches the tone of the response
+9. Create coherent personas where all attributes align logically (e.g., education level should align with occupation and income)
+10. Ensure diversity across the set of personas (varied ages, genders, backgrounds, opinions, etc.)
 
-You must output valid JSON that conforms to the schema.
+You must output valid JSON objects that conform to the schema. Generate one complete profile at a time.
 `;
 
 export const updateDocumentPrompt = (

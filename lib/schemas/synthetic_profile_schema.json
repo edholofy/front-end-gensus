@@ -4,6 +4,7 @@
   "description": "A synthetic person profile with enriched attributes",
   "additionalProperties": false,
   "required": [
+    "demographics",
     "personality",
     "interests",
     "lifestyle",
@@ -18,6 +19,55 @@
     "survey_response"
   ],
   "properties": {
+    "demographics": {
+      "type": "object",
+      "description": "Basic demographic information",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "age",
+        "gender",
+        "location",
+        "ethnicity",
+        "income_bracket",
+        "education_level"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique identifier for the profile"
+        },
+        "name": {
+          "type": "string",
+          "description": "Full name of the person"
+        },
+        "age": {
+          "type": "integer",
+          "description": "Age in years"
+        },
+        "gender": {
+          "type": "string",
+          "description": "Gender identity"
+        },
+        "location": {
+          "type": "string",
+          "description": "City and country/state of residence"
+        },
+        "ethnicity": {
+          "type": "string",
+          "description": "Ethnic background"
+        },
+        "income_bracket": {
+          "type": "string",
+          "description": "Annual income range"
+        },
+        "education_level": {
+          "type": "string",
+          "description": "Highest level of education completed"
+        }
+      }
+    },
     "personality": {
       "type": "object",
       "description": "Personality traits and characteristics",

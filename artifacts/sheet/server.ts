@@ -20,10 +20,22 @@ try {
 
 // Helper function to flatten a nested object for CSV conversion
 function flattenObject(obj: any, prefix = ''): Record<string, any> {
-  // Special handling for survey_response to ensure it appears prominently in the CSV
+  // Special handling for important fields to ensure they appear prominently in the CSV
   const result: Record<string, any> = {};
   
-  // First add survey response fields if they exist
+  // First add demographic fields if they exist
+  if (obj.demographics) {
+    result['ID'] = obj.demographics.id;
+    result['Name'] = obj.demographics.name;
+    result['Age'] = obj.demographics.age;
+    result['Gender'] = obj.demographics.gender;
+    result['Location'] = obj.demographics.location;
+    result['Ethnicity'] = obj.demographics.ethnicity;
+    result['Income Bracket'] = obj.demographics.income_bracket;
+    result['Education Level'] = obj.demographics.education_level;
+  }
+  
+  // Then add survey response fields if they exist
   if (obj.survey_response) {
     result['Survey Question'] = obj.survey_response.question;
     result['Survey Response'] = obj.survey_response.answer;
@@ -32,7 +44,8 @@ function flattenObject(obj: any, prefix = ''): Record<string, any> {
   
   // Then add all other flattened fields
   Object.keys(obj).forEach(key => {
-    if (key === 'survey_response') return; // Skip as we've already handled it
+    // Skip fields we've already handled
+    if (key === 'demographics' || key === 'survey_response') return;
     
     const prefixedKey = prefix ? `${prefix}_${key}` : key;
     
