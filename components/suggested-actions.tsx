@@ -13,24 +13,24 @@ interface SuggestedActionsProps {
 function PureSuggestedActions({ chatId, append }: SuggestedActionsProps) {
   const suggestedActions = [
     {
-      title: 'Remote Work Remote Work in London',
-      label: 'What do 30–45 y/o professionals in London think about hybrid offices?',
-      action: 'How do tech workers feel about remote work?',
+      title: 'Remote Work Survey',
+      label: 'Create a survey about remote work preferences among millennials',
+      action: 'Create a survey about remote work preferences among millennials',
     },
     {
-      title: 'Food Delivery Trends',
-      label: 'How do 18–24 y/o urban dwellers in Austin use food-delivery apps?',
-      action: 'How do 18–24 y/o urban dwellers in Austin use food-delivery apps?',
+      title: 'Smartphone Usage',
+      label: 'Run a market research survey on smartphone usage among Gen Z',
+      action: 'Run a market research survey on smartphone usage among Gen Z',
     },
     {
-      title: 'Healthcare Opinions',
-      label: 'What do 65+ seniors in Chicago think about healthcare reform?',
-      action: 'What do 65+ seniors in Chicago think about healthcare reform?',
+      title: 'EV Preferences',
+      label: 'Generate survey results for consumer preferences in electric vehicles',
+      action: 'Generate survey results for consumer preferences in electric vehicles',
     },
     {
-      title: 'Streaming Preferences',
-      label: 'How do 30-45 y/o parents choose streaming services?',
-      action: 'How do 30-45 y/o parents choose streaming services?',
+      title: 'Streaming Services',
+      label: 'Create a survey about streaming service preferences among 25-40 year olds',
+      action: 'Create a survey about streaming service preferences among 25-40 year olds',
     },
   ];
 

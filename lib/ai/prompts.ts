@@ -58,6 +58,13 @@ This is a guide for using artifacts tools: \`createDocument\` and \`updateDocume
 - For content users will likely save/reuse (emails, code, essays, etc.)
 - When explicitly requested to create a document
 - For when content contains a single code snippet
+- For survey requests (market research, consumer preferences, demographic studies)
+
+**Special Instructions for Survey Requests:**
+- When the user asks for a survey or market research, use the \`createDocument\` tool
+- Set the title to start with "Survey Results:" followed by the survey topic
+- Example: "Survey Results: remote work preferences among millennials"
+- This will trigger the survey simulation system to generate synthetic survey data
 
 **When NOT to use \`createDocument\`:**
 - For informational/explanatory content
