@@ -1,19 +1,31 @@
 import { smoothStream, streamText } from 'ai';
 import { myProvider } from '@/lib/ai/providers';
 import { createDocumentHandler } from '@/lib/artifacts/server';
-import { updateDocumentPrompt } from '@/lib/ai/prompts';
+import { updateDocumentPrompt, SURVEY_SYSTEM_PROMPT } from '@/lib/ai/prompts';
 
 export const textDocumentHandler = createDocumentHandler<'text'>({
   kind: 'text',
   onCreateDocument: async ({ title, dataStream }) => {
     let draftContent = '';
 
+    // Check if this is a survey request
+    const isSurveyRequest = title.startsWith("Survey Results:");
+    
+    // Extract the actual survey question if this is a survey request
+    const prompt = isSurveyRequest 
+      ? title.substring("Survey Results:".length).trim() 
+      : title;
+    
+    // Use the appropriate system prompt based on request type
+    const systemPrompt = isSurveyRequest 
+      ? SURVEY_SYSTEM_PROMPT 
+      : 'Write about the given topic. Markdown is supported. Use headings wherever appropriate.';
+
     const { fullStream } = streamText({
       model: myProvider.languageModel('artifact-model'),
-      system:
-        'Write about the given topic. Markdown is supported. Use headings wherever appropriate.',
+      system: systemPrompt,
       experimental_transform: smoothStream({ chunking: 'word' }),
-      prompt: title,
+      prompt: prompt,
     });
 
     for await (const delta of fullStream) {
