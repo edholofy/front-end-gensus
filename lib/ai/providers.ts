@@ -13,6 +13,10 @@ import {
   titleModel,
 } from './models.test';
 
+if (!process.env.OPENAI_API_KEY) {
+  throw new Error('OPENAI_API_KEY environment variable is not set');
+}
+
 // Initialize OpenAI provider with API key from environment variables
 const openai = createOpenAI({
   apiKey: process.env.OPENAI_API_KEY,
